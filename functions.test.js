@@ -1,4 +1,4 @@
-import { capitalize, reversString } from './functions'
+import { capitalize, reversString, calculator } from './functions'
 
 describe('capitalize', () => {
     test('return string with first character capitalized', () => {
@@ -29,8 +29,29 @@ describe('reverseString', () => {
         expect(reversString('string reverse')).toBe('esrever gnirts');
     }),
     test('throw an error if invalid input', () => {
-        expect(() => capitalize(null)).toThrow();
-        expect(() => capitalize(0)).toThrow();
-        expect(() => capitalize()).toThrow();
+        expect(() => reversString(null)).toThrow();
+        expect(() => reversString(0)).toThrow();
+        expect(() => reversString()).toThrow();
+    })
+})
+
+describe('calculator', () => {
+    test('return sum of two numbers', () => {
+        expect(calculator.add(2, 2)).toBe(4);
+    }),
+    test('return subtraction of two numbers', () => {
+        expect(calculator.subtract(10, 2)).toBe(8);
+    }),
+    test('return multiplication of two numbers', () => {
+        expect(calculator.multiply(10, 2)).toBe(20);
+    })
+    test('return dividion of two numbers', () => {
+        expect(calculator.divide(10, 2)).toBe(5);
+    }),
+    test('throw an error if invalid input', () => {
+        expect(() => calculator.add('cat', 'dog')).toThrow();
+        expect(() => calculator.subtract('null', 12)).toThrow();
+        expect(() => calculator.multiply('123', '!@#$')).toThrow();
+        expect(() => calculator.divide('animal', undefined)).toThrow();
     })
 })
