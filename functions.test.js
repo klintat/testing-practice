@@ -2,7 +2,8 @@ import {
     capitalize, 
     reversString, 
     calculator, 
-    caesarCipher 
+    caesarCipher,
+    analyzeArray 
 } from './functions'
 
 describe('capitalize', () => {
@@ -70,5 +71,14 @@ describe('caesarCipher', () => {
     }),
     test('return cipher with punctuations, spaces, and other non-alphabetical characters unchanged', () => {
         expect(caesarCipher('Hello, World!', 3)).toBe('Khoor, Zruog!');
+    })
+})
+
+describe('analyzeArray', () => {
+    test('return an object with the following properties from an array of number', () => {
+        expect(analyzeArray([1, 2, 3])).toBeInstanceOf(Object);
+    }),
+    test('return an object with the following properties from an array of number', () => {
+        expect(analyzeArray([1,8,3,4,2,6])).toBeInstanceOf(Object);
     })
 })

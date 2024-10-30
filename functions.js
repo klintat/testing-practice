@@ -42,3 +42,20 @@ export function caesarCipher(str, shift) {
         return String.fromCharCode(((char.charCodeAt(0) - baseCode + shift) % 26) + baseCode);
     });
 }
+
+export function analyzeArray(arr) {
+    if (arr.length === 0) return null;
+
+    const sum = arr.reduce((total, num) => total + num, 0);
+    const average = sum / arr.length;
+    const min = Math.min(...arr);
+    const max = Math.max(...arr);
+    const length = arr.length;
+
+    return {
+        average: average,
+        min: min,
+        max: max,
+        length: length
+    };
+}
