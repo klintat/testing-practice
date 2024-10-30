@@ -1,4 +1,9 @@
-import { capitalize, reversString, calculator } from './functions'
+import { 
+    capitalize, 
+    reversString, 
+    calculator, 
+    caesarCipher 
+} from './functions'
 
 describe('capitalize', () => {
     test('return string with first character capitalized', () => {
@@ -53,5 +58,17 @@ describe('calculator', () => {
         expect(() => calculator.subtract('null', 12)).toThrow();
         expect(() => calculator.multiply('123', '!@#$')).toThrow();
         expect(() => calculator.divide('animal', undefined)).toThrow();
+    })
+})
+
+describe('caesarCipher', () => {
+    test('return text in cipher', () => {
+        expect(caesarCipher('xyz', 3)).toBe('abc');
+    }),
+    test('return cipher with original lettercase', () => {
+        expect(caesarCipher('HeLLo', 3)).toBe('KhOOr');
+    }),
+    test('return cipher with punctuations, spaces, and other non-alphabetical characters unchanged', () => {
+        expect(caesarCipher('Hello, World!', 3)).toBe('Khoor, Zruog!');
     })
 })

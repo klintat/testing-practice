@@ -35,3 +35,10 @@ export const calculator = {
         return a / b;
     }
 };
+
+export function caesarCipher(str, shift) {
+    return str.replace(/[a-zA-Z]/g, char => {
+        const baseCode = char === char.toUpperCase() ? 65 : 97; // 'A' is 65, 'a' is 97 in ASCII
+        return String.fromCharCode(((char.charCodeAt(0) - baseCode + shift) % 26) + baseCode);
+    });
+}
